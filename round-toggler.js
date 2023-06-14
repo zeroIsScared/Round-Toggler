@@ -19,6 +19,13 @@ console.log(btnById);
 
 let n = 0;
 console.log(n);
+
+//add a helper function
+const bntSize= function (size, k) {
+    return btn.style.size= `${parseInt(btn.style.size) * k}px`;
+}
+
+
 btn.addEventListener('click', () => {
     //read the button width and height
 
@@ -26,19 +33,17 @@ btn.addEventListener('click', () => {
     let initialHeight = parseInt(comStyle.height);
 
     if (n === 2) {
-        let resetHeightNow = parseInt(btn.style.height) / 2.25;
-        btn.style.height = `${resetHeightNow}px`;
-        btn.style.width = `${resetHeightNow}px`;
+        btnSize('height', 100/225);
+        btnSize('width', 100/225);
         //adjust the border radius
-        btn.style.borderRadius = `${resetHeightNow}px`;
+        btnSize('borderRadius', 100/225);        
         n = 0;
     } else {
 
-        let newHeight = `${initialHeight * 1.5}px`;
-        btn.style.height = newHeight;
-        btn.style.width = newHeight;
+        btnSize('height', 1.5);
+        btnSize('width', 1.5);
         //adjust the border radius
-        btn.style.borderRadius = newHeight;
+        btnSize('borderRadius', 1.5);   
         n++;
     }
 
